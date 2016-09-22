@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Minesweeper</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- SEO -->
+        <meta name="application-name" content="Minesweeper" />
+        <meta name="author" content="Kyle Amoroso" />
+        <meta name="description" content="The original Minesweeper recreated in HTML5." />
+		<meta name="keywords" content="minesweeper,game,html5" />
+        <meta name="version" content="1.0" />
+        <meta property="og:title" content="Minesweeper" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://pitt.edu/~ksa18/minesweeper/" />
+        <meta property="og:image" content="http://pitt.edu/~ksa18/minesweeper/splash.png" />
+        <meta property="og:description" content="The original Minesweeper recreated in HTML5 as a Chrome App." />
+		<!-- Favicons -->
+        <link rel="icon" type="image/png" href="icons/favicon-96.png" />
+		<!-- Custom -->
+		<link rel="stylesheet" href="dropdown.css" />
+		<link rel="stylesheet" href="dialog.css" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="dialog.js"></script>
+		<script src="minesweeper.js"></script>
+	</head>
+	
+	<body>
+		<header>
+			<nav class="dropdown">
+				<ul>
+					<li><span>Game</span>
+						<ul>
+							<li><a href="#" id="new-game">New</a></li>
+							<li><hr /></li>
+							<li><label>Difficulty
+								<select id="difficulty" title="Difficulty">
+									<option value="9,9,10" selected>Beginner</option>
+									<option value="16,16,40">Intermediate</option>
+									<option value="30,16,99">Expert</option>
+									<option value="custom">Custom&hellip;</option>
+								</select>
+							</label></li>
+							<li><label><input type="checkbox" id="marks" />Marks (?)</label></li>
+							<li><hr /></li>
+							<li><label>Zoom
+								<select id="zoom" title="Zoom">
+									<option value="0.5">100%</option>
+									<option value="1" selected>200%</option>
+								</select>
+							</label></li>
+						</ul>
+					</li>
+					<li><span>Help</span>
+						<ul>
+							<li><a href="#" id="wiki">Strategy</a></li>
+							<li><hr /></li>
+							<li><a href="#" data-dialog-show="about-dialog">About</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<table id="gamewrapper">
+			<tr><th>
+				<div id="mines-display"><div></div><div></div><div></div></div>
+				<div id="face-display"><div></div></div>
+				<div id="time-display"><div></div><div></div><div></div></div>
+			</th></tr>
+			<tr><td>
+				<table id="game"><tr><td></td></tr></table>
+			</td></tr>
+		</table>
+		<!-- dialogs -->
+		<div class="dialog-container" id="about-dialog">
+			<div class="dialog">
+				<header class="dialog-header">
+					<span class="dialog-title">About</span>
+					<span class="dialog-hide-x" data-dialog-hide="about-dialog">&times;</span>
+				</header>
+				<div class="dialog-body">Created for the Chrome Web Store by Kyle Amoroso in 2015.</div>
+				<footer class="dialog-footer"><button data-dialog-hide="about-dialog">OK</button></footer>
+			</div>
+		</div>
+		<div class="dialog-container" id="custom-dialog">
+			<form class="dialog">
+				<header class="dialog-header">
+					<span class="dialog-title">Custom Field</span>
+					<span class="dialog-hide-x" data-dialog-hide="custom-dialog">&times;</span>
+				</header>
+				<table class="dialog-body">
+					<tr><td><label for="height-entry">Height:</label></td><td><input type="text" size="2" maxlength="2" id="height-entry" /></tr>
+					<tr><td><label for="width-entry">Width:</label></td><td><input type="text" size="2" maxlength="2" id="width-entry" /></td></tr>
+					<tr><td><label for="mines-entry">Mines:</label></td><td><input type="text" size="3" maxlength="3" id="mines-entry" /></td></tr>
+				</table>
+				<footer class="dialog-footer">
+					<input type="submit" value="OK" />
+					<input type="button" data-dialog-hide="custom-dialog" value="Cancel" />
+				</footer>
+			</form>
+		</div>
+	</body>
+</html>
