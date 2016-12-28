@@ -1,6 +1,6 @@
 {
 	"name": "Minesweeper",
-	"description": "The original Minesweeper recreated in HTML5 as a Chrome App.",
+	"description": "The original Minesweeper recreated as a Chrome App.",
 	"version": "1.1.1",
 	"author": "Kyle Amoroso",
 	"manifest_version": 2,
